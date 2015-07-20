@@ -16,6 +16,6 @@
     "express-session": "^1.11.3",
     "mongoose": "^4.0.7",
     "underscore": "^1.8.3"
-  },
+  }
 }
 
