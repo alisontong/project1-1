@@ -7,7 +7,9 @@ var express = require('express'),
     session = require('express-session'),
     Food = require('./models/food');
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect(
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -190,11 +192,5 @@ app.delete('/api/foods/:id', function (req, res) {
   });
 });
 
-
-mongoose.connect(
-  process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/YOUR_LOCAL_DATABASE_NAME' // plug in the db name you've been using
-);
 
 app.listen(process.env.PORT || 3000);
