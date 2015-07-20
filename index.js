@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    _ = require("underscore");
+    _ = require("underscore"),
     User = require('./models/user'),
     session = require('express-session'),
     Food = require('./models/food');
@@ -194,11 +194,5 @@ app.delete('/api/foods/:id', function (req, res) {
   });
 });
 
-
-mongoose.connect(
-  process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/YOUR_LOCAL_DATABASE_NAME' // plug in the db name you've been using
-);
 
 app.listen(process.env.PORT || 3000);
