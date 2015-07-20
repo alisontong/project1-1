@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "scripts": {
+  "start": "node server.js"
+}
   "author": "alison",
   "license": "MIT",
   "dependencies": {
@@ -14,5 +17,6 @@
     "express-session": "^1.11.3",
     "mongoose": "^4.0.7",
     "underscore": "^1.8.3"
-  }
+  },
 }
+
