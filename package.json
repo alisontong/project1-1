@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "scripts": {
-  "start": "node server.js"}
+  "start": "node server.js",
   "author": "alison",
   "license": "MIT",
   "dependencies": {
@@ -18,5 +18,5 @@
     "underscore": "^1.8.3"
   }
 }
-
+}
 
