@@ -1,101 +1,95 @@
-$(function() {
+//Code to show all wines here
+$('#submit-wine1').on('click',function(){
+	var wineObj = {
+		name: $('#name'.val(),
+			year: $('#year').val(),
+			grapes:$('#grapes').val(),
+			country:$('#country').val(),
+			region:$('#region').val(),
+			price:$('#price').val(),
+			description:$('#description').val(),
+			picture:$('#picture').val(),
+		};
+		console.log(wineObj);
+	})
 
-  
-  var foodsController = {
-    
-    template: _.template($('#food-template').html()),
+		$.ajax({
+			type: "POST",
+			url: "http://daretodiscover.herokuapp.com/wines";
+			data: wineObj;
+			success: function(){
+				window.location.reload();
+			},
+			error:function(){
+				alert("Error!");
+			}
+		});
 
-    all: function() {
-      $.get('/api/foods', function(data) {
-        var allFoods = data;
-        
-        
-        _.each(allFoods, function(food) {
-          
-          var $foodHtml = $(foodsController.template(food));
-          $('#food-list').prepend($foodHtml);
-        });
-        
-        foodsController.addEventHandlers();
-      });
-    },
+		$(document).ready(function(){
+			$ajax({
+				url:"http://daretodiscover.herokuapp.com/wines",
+				type:"GET",
+				success: function(data){
+					var template = _.template($("#wine-template").html());
+					_.each(data,function(wine){
+						$("#wine-container").append(template(wine));
+					})
+				}
+			})
+		})
 
-    function(name, price, description) {
-      var foodData = [{name: "Gongbaojiding", price: 15, description: "one of the most popular sichuan dish and has been well-liked in China for thousands of years"},
-                      {name:"Chaofan", price: 10, description:"most popular Chinese fast food worldwide. It's convenient,tasty and inexpensive"}];
-      
-      $.post('/api/foods', foodData, function(data) {
-     
-        var $foodHtml = $(foodsController.template(data));
-        $('#food-list').prepend($foodHtml);
-      });
-    },
 
-    function(foodId, updatedName, updatedPrice, updatedDescription) {
-     
-      $.ajax({
-        type: 'PUT',
-        url: '/api/foods/' + foodId,
-        data: {
-          name: updatedName,
-          price: updatedPrice,
-          description:updatedDescription
-        },
-        success: function(data) {
-          var $foodHtml = $(foodsController.template(data));
-          $('#food-' + foodId).replaceWith($foodHtml);
-        }
-      });
-    },
-    
-    function(foodId) {
-      $.ajax({
-        type: 'DELETE',
-        url: '/api/foods/' + foodId,
-        success: function(data) {
-          $('#food-' + foodId).remove();
-        }
-      });
-    },
+//Code to fill in modal to edit a wine
+$(document).on("click", ".edit-wine-button", function(event) {
+	event.preventDefault();
 
- 
-    addEventHandlers: function() {
-      $('#food-list')
-        
-        .on('submit', '.update-food', function(event) {
-          event.preventDefault();
-          var foodId = $(this).closest('.food').attr('data-id');
-          var updatedName = $(this).find('.updated-name').val();
-          var updatedPrice = $(this).find('.updated-price').val();
-          var updatedDescription = $(this).find('.updated-description').val();
-          foodsController.update(foodId, updatedAuthor, updatedText);
-        })
-        
-        .on('click', '.delete-food', function(event) {
-          event.preventDefault();
-          var foodId = $(this).closest('.food').attr('data-id');
-          foodsController.delete(foodId);
-        });
-    },
-
-    function() {
-      foodsController.all();
-      
-      
-      $('#new-food').on('submit', function(event) {
-        event.preventDefault();
-        var newName = $('#new-name').val();
-        var newText = $('#new-text').val();
-        var newDescription = $('#new-description').val();
-        foodsController.create(newName, newText, newDescription);
-        
-        
-        $(this)[0].reset();
-        $('#new-Name').focus();
-      });
-    }
-  };
-
-  foodsController.setupView();
-
+	$.ajax({
+		url: "http://daretodiscover.herokuapp.com/wines/" + $(this).data("id"),
+		type: "GET",
+		success: function(data) {
+			$("#edit-name").val(data.name);
+			$("#edit-year").val(data.year);
+			$("#edit-grapes").val(data.grapes);
+			$("#edit-country").val(data.country);
+			$("#edit-region").val(data.region);
+			$("#edit-price").val(data.price);
+			$("#edit-description").val(data.description);
+			$("#edit-picture").val(data.picture);
+            $("#edit-wine-modal").modal("show");
+		}
+	});
 });
+
+
+
+//Code to update a wine here
+$(document).on("click", "#submit-wine", function(event) {
+	event.preventDefault();
+
+	$.ajax({
+		url: "http://daretodiscover.herokuapp.com/wines/" + $(this).data("id"),
+		type: "PUT",
+		data: wineObj;
+		success: function(){
+			window.location.reload();
+		},
+		error:function(){
+			alert("Error!");
+		}
+	});
+
+//Code to delete a wine here
+$(document).on("click", "#delete-wine", function(event) {
+	event.preventDefault();
+	$.ajax({
+		url: "http://daretodiscover.herokuapp.com/wines/" + $(this).data("id"),
+		type: "DELETE",
+		data: wineObj;
+		success: function(){
+			window.location.reload();
+		},
+		error:function(){
+			alert("Error!");
+		}
+	});
+
