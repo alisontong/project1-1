@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- custom styles -->
+  <link type="text/css" rel="stylesheet" href="styles/style.css">
+
+  <title>Food blog</title>
+</head>
+<body>
+  
+  <!-- header -->
+  <div class="well">
+    <div class="container">
+      <div class="page-header">
+        <h1>Welcome to the Chinese food blog!</h1>
+        <p>We all love Chinese food!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8" id="food-list"></div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-3">
+
+
+        <form class="form-inline" id="new-food">
+          <div class="newformline1">
+            <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus>
+          </div>
+          <div>    
+            <input type="text" class="form-control" id="new-price" placeholder="Price">
+          </div>
+          <div>
+            <input type="text" class="form-control" id="new-description" placeholder="Description">
+            <input type="submit" class="btn btn-success" value="Add Food">
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <!-- jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- underscore -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+  <!-- custom script -->
+  <script type="text/javascript" src="scripts/script.js"></script>
+
+  <!-- underscore template -->
+  <script type="text/template" id="food-template">
+    <div class="food panel panel-default" id="food-<%= id %>" data-id="<%= id %>">
+      <div class="panel-body">
+
+        <span class="my-button-group">
+          <!-- delete button -->
+          <button class="close right-side delete-food" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <a class="edit-pencil" role="button" data-toggle="collapse" data-target="#update-<%= id %>">
+            <span class="glyphicon glyphicon-pencil edit"></span>
+          </a>
+        </span>
+
+        <p><%= name %></p>
+        <p><%= price %></p>
+        <p><%= description %></p>
+
+
+    
+        <div class="collapse" id="update-<%= id %>">
+          <br>
+          <form class="form-inline update-food">          
+            <input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
+            <input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
+            <input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
+            <input type="submit" class="btn btn-default" value="Update food">
+          </form>
+        </div>
+        <div class="comment-list" id="comments-<%= id %>">
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <!-- underscore template for single COMMENT -->
+  <script type="text/template" id="comment-template">
+    <div class="comment panel panel-default" id="comment-<%= id %>" data-id="<%= id %>">
+      <div class="panel-body">
+
+        <span class="my-button-group">
+          <!-- delete button -->
+          <button class="close right-side delete-comment" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </span>
+
+        <!-- comment content -->
+        <p><%= name %></p>
+        <p><%= price %></p>
+        <p><%= description %></p>
+
+      </div>
+    </div>
+  </script>
+  
+</body>
+</html>

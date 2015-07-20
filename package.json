@@ -1,0 +1,18 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "alison's project1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alison",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "express-session": "^1.11.3",
+    "mongoose": "^4.0.7",
+    "underscore": "^1.8.3"
+  }
+}
