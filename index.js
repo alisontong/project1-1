@@ -16,6 +16,8 @@ mongoose.connect(
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(express.static(__dirname + '/public'));
+
 // set session options
 app.use(session({
   saveUninitialized: true,
@@ -119,13 +121,6 @@ app.get('/logout', function (req, res) {
   res.redirect('/login');
 });
 
-// listen on port 3000
-app.listen(3000, function () {
-  console.log('server started on locahost:3000');
-});
-
-
-app.use(express.static(__dirname + '/public'));
 
 
 var foods =[
