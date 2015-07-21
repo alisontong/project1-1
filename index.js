@@ -176,6 +176,7 @@ app.put('/api/foods/:id', function(req, res) {
     foundFood.name = req.body.name;
     foundFood.price = req.body.price;
     foundFood.description = req.body.description;
+    foundFood.picture = req.body.picture;
 
     foundFood.save(function(err,savedFood){
       res.json(savedFood);
