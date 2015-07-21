@@ -145,11 +145,14 @@ app.get('/api/foods', function (req, res) {
 
 
 app.post('/api/foods', function (req, res) {
+
   var newFood = new Food({
     name: req.body.name,
     price:req.body.price,
-    description:req.body.description
+    description:req.body.description,
+    picture:req.body.picture
   });
+
   newFood.save(function(err,savedFood){
     res.json(savedFood);
   });

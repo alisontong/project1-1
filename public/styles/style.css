@@ -6,3 +6,8 @@ div.img {
     width: auto;
     float: left;
 }
+
+.food-picture{
+	max-width: 700px;
+	max-height: 700px;
+}

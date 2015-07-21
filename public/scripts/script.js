@@ -9,9 +9,8 @@ $(function() {
       $.get('/api/foods', function(data) {
         var allFoods = data;
         
-        
         _.each(allFoods, function(food) {
-          
+
           var $foodHtml = $(foodsController.template(food));
           $('#food-list').prepend($foodHtml);
         });
@@ -20,9 +19,8 @@ $(function() {
       });
     },
 
-    function(name, price, description) {
-      var foodData = [{name: "Gongbaojiding", price: 15, description: "one of the most popular sichuan dish and has been well-liked in China for thousands of years"},
-                      {name:"Chaofan", price: 10, description:"most popular Chinese fast food worldwide. It's convenient,tasty and inexpensive"}];
+    create: function(name, price, description,picture) {
+      var foodData = {name:name,price:price,description:description,picture:picture};
       
       $.post('/api/foods', foodData, function(data) {
      
@@ -31,7 +29,8 @@ $(function() {
       });
     },
 
-    function(foodId, updatedName, updatedPrice, updatedDescription) {
+
+    update:function(foodId, updatedName, updatedPrice, updatedDescription) {
      
       $.ajax({
         type: 'PUT',
@@ -48,7 +47,7 @@ $(function() {
       });
     },
     
-    function(foodId) {
+    delete:function(foodId) {
       $.ajax({
         type: 'DELETE',
         url: '/api/foods/' + foodId,
@@ -78,16 +77,16 @@ $(function() {
         });
     },
 
-    function() {
+    setupView: function() {
       foodsController.all();
-      
       
       $('#new-food').on('submit', function(event) {
         event.preventDefault();
         var newName = $('#new-name').val();
-        var newText = $('#new-text').val();
+        var newPrice = $('#new-price').val();
         var newDescription = $('#new-description').val();
-        foodsController.create(newName, newText, newDescription);
+        var newPicture = $('#new-picture').val();
+        foodsController.create(newName, newPrice, newDescription,newPicture);
         
         
         $(this)[0].reset();

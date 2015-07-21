@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 var FoodSchema = new Schema({
   name: String,
   price: String,
-  description: String
+  description: String,
+  picture: String
 });
 
 var Food = mongoose.model('Food', FoodSchema);
