@@ -106,13 +106,13 @@
 
 
     
-        <div class="collapse" id="update-<%= _id %>">
+        <div class="collapse" id="update-<%=_id %>">
           <br>
           <form class="form-inline update-food">          
             <input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
             <input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
             <input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
-           <input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture">
+            <input type="text" class="form-control updated-picture" src="<%= picture %>" placeholder="Picture url">
             <input type="submit" class="btn btn-default" value="Update food">
           </form>
         </div>
@@ -123,26 +123,26 @@
   </script>
 
   <!-- underscore template for single COMMENT --> 
-  <script type="text/template" id="comment-template">
-  //   <div class="comment panel panel-default" id="comment-<%=_id %>" data-id="<%=_id %>">
-  //     <div class="panel-body">
+ <script type="text/template" id="comment-template">
+    <div class="comment panel panel-default" id="comment-<%=_id %>" data-id="<%=_id %>">
+      <div class="panel-body">
 
-  //       <span class="my-button-group">
-  //         <!-- delete button -->
-  //         <button class="close right-side delete-comment" aria-label="Close">
-  //           <span aria-hidden="true">&times;</span>
-  //         </button>
-  //       </span>
+        <span class="my-button-group">
+          <!-- delete button -->
+          <button class="close right-side delete-comment" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </span>
 
-  //       <!-- comment content -->
-  //       <p><%= name %></p>
-  //       <p><%= price %></p>
-  //       <p><%= description %></p>
-  //       <p><%= picture %></p>
+        <!-- comment content -->
+        <p><%= name %></p>
+        <p><%= price %></p>
+        <p><%= description %></p>
+        <p><%= picture %></p>
 
-  //     </div>
-  //   </div>
-  // </script>
+      </div>
+    </div>
+  </script>
   
 </body>
 </html>

@@ -19,8 +19,8 @@ $(function() {
       });
     },
 
-    create: function(name, price, description,picture) {
-      var foodData = {name:name,price:price,description:description,picture:picture};
+    create: function(newName, newPrice, newDescription,newPicture) {
+      var foodData = {name:newName,price:newPrice,description:newDescription,picture:newPicture};
       
       $.post('/api/foods', foodData, function(data) {
      
@@ -38,12 +38,13 @@ $(function() {
         data: {
           name: updatedName,
           price: updatedPrice,
-          description:updatedDescription,
-          picture:updatedPicture
+          description: updatedDescription,
+          picture: updatedPicture
         },
         success: function(data) {
           var $foodHtml = $(foodsController.template(data));
           $('#food-' + foodId).replaceWith($foodHtml);
+          console.log(data);
         }
       });
     },
@@ -71,7 +72,7 @@ $(function() {
           var updatedPicture = $(this).find('.updated-picture').val();
           foodsController.update(foodId, updatedName, updatedPrice, updatedDescription,updatedPicture);
         })
-        
+         
         .on('click', '.delete-food', function(event) {
           event.preventDefault();
           var foodId = $(this).closest('.food').attr('data-id');
@@ -92,7 +93,7 @@ $(function() {
         
         
         $(this)[0].reset();
-        $('#new-Name').focus();
+        $('#new-name').focus();
       });
     }
   };
