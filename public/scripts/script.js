@@ -38,8 +38,8 @@ $(function() {
         data: {
           name: updatedName,
           price: updatedPrice,
-          description:updatedDescription
-          //picture:updatedPicture
+          description:updatedDescription,
+          picture:updatedPicture
         },
         success: function(data) {
           var $foodHtml = $(foodsController.template(data));
@@ -68,8 +68,8 @@ $(function() {
           var updatedName = $(this).find('.updated-name').val();
           var updatedPrice = $(this).find('.updated-price').val();
           var updatedDescription = $(this).find('.updated-description').val();
-          //var updatedPicture = $(this).find('.updated-picture').val();
-          foodsController.update(foodId, updatedName, updatedPrice, updatedDescription);
+          var updatedPicture = $(this).find('.updated-picture').val();
+          foodsController.update(foodId, updatedName, updatedPrice, updatedDescription,updatedPicture);
         })
         
         .on('click', '.delete-food', function(event) {
