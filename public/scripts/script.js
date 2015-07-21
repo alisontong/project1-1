@@ -31,7 +31,7 @@ $(function() {
 
 
     update:function(foodId, updatedName, updatedPrice, updatedDescription, updatedPicture) {
-     
+    
       $.ajax({
         type: 'PUT',
         url: '/api/foods/' + foodId,
@@ -39,7 +39,7 @@ $(function() {
           name: updatedName,
           price: updatedPrice,
           description:updatedDescription
-          picture:updatedPicture
+          //picture:updatedPicture
         },
         success: function(data) {
           var $foodHtml = $(foodsController.template(data));
@@ -68,8 +68,8 @@ $(function() {
           var updatedName = $(this).find('.updated-name').val();
           var updatedPrice = $(this).find('.updated-price').val();
           var updatedDescription = $(this).find('.updated-description').val();
-          var updatedPicture = $(this).find('updated-picture').val();
-          foodsController.update(foodId, updatedName, updatedPrice, updatedDescription, updatedPicture);
+          //var updatedPicture = $(this).find('.updated-picture').val();
+          foodsController.update(foodId, updatedName, updatedPrice, updatedDescription);
         })
         
         .on('click', '.delete-food', function(event) {
