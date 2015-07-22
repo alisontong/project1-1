@@ -13,142 +13,141 @@
   <title>Food blog</title>
 </head>
 <body>
-  
+<!-- add the Add food modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Start food blogging!</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-inline" id="new-food">
+            <div class="newformline1">
+              <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus>
+            </div>
+            <div>    
+              <input type="text" class="form-control" id="new-price" placeholder="Price">
+            </div>
+            <div>
+              <input type="text" class="form-control" id="new-description" placeholder="Description">
+            </div>
+            <div>    
+              <input type="text" class="form-control" id="new-picture" placeholder="Picture url">
+              <input type="submit" class="btn btn-success" value="Add Food">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- header -->
   <div class="header">
     <div class="container">
       <div class="page-header">
+         
+
         <ul class="nav nav-pills navbar-right">
-          <li role="presentation" class="active" id="signup"><a href="/signup">Signup</a></li>
-          <li role="presentation" class="active" id="login"><a href="/login">Login</a></li>
-        </ul>
-        <h1>Welcome to the Chinese food blog!</h1>
-        <p>We all love Chinese food!</p>
-      </div>
+          <!-- Button trigger modal -->
+         
+         <li role="presentation" class="active" id="signup"><a href="/signup">Signup</a></li>
+         <li role="presentation" class="active" id="login"><a href="/login">Login</a></li>
+         <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+           Add Food
+         </li>
+       </ul>
+       <h1>Welcome to the Chinese food blog!</h1>
+       <p>We all love Chinese food!</p>
+     </div>
+   </div>
+ </div>
+
+ <div class="row row-wrap" id="food-list"></div>
+
+ <div class="container main-form">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3">
+
+
+
+      <br>
     </div>
   </div>
+</div>
 
-  <div class="row row-wrap" id="food-list"></div>
-  
-  <div class="container main-form">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-3">
+<!-- jquery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
+<!-- bootstrap js -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-        <form class="form-inline" id="new-food">
-          <div class="newformline1">
-            <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus>
-          </div>
-          <div>    
-            <input type="text" class="form-control" id="new-price" placeholder="Price">
-          </div>
-          <div>
-            <input type="text" class="form-control" id="new-description" placeholder="Description">
-          </div>
-           <div>    
-            <input type="text" class="form-control" id="new-picture" placeholder="Picture url">
-            <input type="submit" class="btn btn-success" value="Add Food">
-          </div>
-        </form>
-        <br>
-      </div>
-    </div>
-  </div>
-<!-- login form -->
-<!--     <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>Log In</h1>
-        <hr>
-        <form method="post" action="/login">
-          <div class="form-group">
-            <input type="text" name="user[email]" class="form-control" placeholder="Email" autofocus>
-          </div>
-          <div class="form-group">
-            <input type="password" name="user[password]" class="form-control" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <input type="submit" value="Log In" class="btn btn-primary">
-          </div>
-        </form>
-      </div>
-    </div>
-  </div> -->
+<!-- underscore -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
-  <!-- jquery -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<!-- custom script -->
+<script type="text/javascript" src="../scripts/script.js"></script>
 
-  <!-- bootstrap js -->
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- underscore template -->
+<script type="text/template" id="food-template">
+<div class="col-md-4">
+<div class="food panel panel-default" id="food-<%=_id %>" data-id="<%= _id %>">
+<div class="panel-body">
 
-  <!-- underscore -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<span class="my-button-group">
+<!-- delete button -->
+<button class="close right-side delete-food" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
 
-  <!-- custom script -->
-  <script type="text/javascript" src="../scripts/script.js"></script>
+<a class="edit-pencil" role="button" data-toggle="collapse" data-target="#update-<%=_id %>">
+<span class="glyphicon glyphicon-pencil edit"></span>
+</a>
+</span>
 
-  <!-- underscore template -->
-  <script type="text/template" id="food-template">
-   <div class="col-md-4">
-    <div class="food panel panel-default" id="food-<%=_id %>" data-id="<%= _id %>">
-      <div class="panel-body">
-
-        <span class="my-button-group">
-          <!-- delete button -->
-          <button class="close right-side delete-food" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-
-          <a class="edit-pencil" role="button" data-toggle="collapse" data-target="#update-<%=_id %>">
-            <span class="glyphicon glyphicon-pencil edit"></span>
-          </a>
-        </span>
-
-        <p>Name:<%= name %></p>
-        <p>Price:<%= price %></p>
-        <p>Description:<%= description %></p>
-        <img src="<%= picture %>" class="food-picture">
+<p>Name:<%= name %></p>
+<p>Price:<%= price %></p>
+<p>Description:<%= description %></p>
+<img src="<%= picture %>" class="food-picture">
 
 
-    
-        <div class="collapse" id="update-<%=_id %>">
-          <br>
-          <form class="form-inline update-food">          
-            <input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
-            <input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
-            <input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
-            <input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url">
-            <input type="submit" class="btn btn-default" value="Update food">
-          </form>
-        </div>
-        <div class="comment-list" id="comments-<%=_id %>">
-        </div>
-      </div>
-    </div>
-  </div
-  </script>
+<div class="collapse" id="update-<%=_id %>">
+<br>
+<form class="form-inline update-food">          
+<input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
+<input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
+<input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
+<input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url">
+<input type="submit" class="btn btn-default" value="Update food">
+</form>
+</div>
+<div class="comment-list" id="comments-<%=_id %>">
+</div>
+</div>
+</div>
+</div
+</script>
 
-  <!-- underscore template for single COMMENT --> 
- <script type="text/template" id="comment-template">
-    <div class="comment panel panel-default" id="comment-<%=_id %>" data-id="<%=_id %>">
-      <div class="panel-body">
+<!-- underscore template for single COMMENT --> 
+<script type="text/template" id="comment-template">
+<div class="comment panel panel-default" id="comment-<%=_id %>" data-id="<%=_id %>">
+<div class="panel-body">
 
-        <span class="my-button-group">
-          <!-- delete button -->
-          <button class="close right-side delete-comment" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </span>
+<span class="my-button-group">
+<!-- delete button -->
+<button class="close right-side delete-comment" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</span>
 
-        <!-- comment content -->
-        <p><%= name %></p>
-        <p><%= price %></p>
-        <p><%= description %></p>
-        <p><%= picture %></p>
+<!-- comment content -->
+<p><%= name %></p>
+<p><%= price %></p>
+<p><%= description %></p>
+<p><%= picture %></p>
 
-      </div>
-    </div>
-  </script>
-  
+</div>
+</div>
+</script>
+
 </body>
 </html>
