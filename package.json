@@ -4,18 +4,15 @@
   "description": "alison's project1",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "author": "alison",
-    "license": "MIT",
-    "dependencies": {
-      "body-parser": "^1.13.2",
-      "express": "^4.13.1",
-      "express-session": "^1.11.3",
-      "mongoose": "^4.0.7",
-      "underscore": "^1.8.3"
-    }
+    "test": "mocha test",
+    "start": "node index.js"
   },
+  "author": "alison",
+  "license": "MIT",
   "dependencies": {
-    "bcrypt": "^0.8.3"
+    "bcrypt": "^0.8.3",
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "request": "^2.60.0"
   }
 }

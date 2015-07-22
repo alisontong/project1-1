@@ -7,7 +7,6 @@ var express = require('express'),
     session = require('express-session'),
     Food = require('./models/food');
 
-// mongoose.connect('mongodb://localhost/test');
 mongoose.connect(
   process.env.MONGOLAB_URI ||
   // process.env.MONGOHQ_URL || 
