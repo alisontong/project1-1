@@ -46,10 +46,11 @@
     <div class="container">
       <div class="page-header">
         <ul class="nav nav-pills navbar-right">
-         <li role="presentation" class="active" id="signup"><a href="/signup">Signup</a></li>
-         <li role="presentation" class="active" id="login"><a href="/login">Login</a></li>
-         <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-           Add Food</li>
+         <li role="presentation" id="signup" style="display:none;"><a href="/signup">Signup</a></li>
+         <li role="presentation" id="login" style="display:none;"><a href="/login">Login</a></li>
+         
+         <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Food</li>
+         <li role="presentation" id="logout-message" style="display:none;"><a href="/logout">Logout</a></li>
        </ul>
        <h1>Welcome to the Chinese food blog!</h1>
        <p>We all love Chinese food!</p>
@@ -57,6 +58,7 @@
    </div>
  </div>
 
+<!-- pending data from the template-->
  <div class="row row-wrap" id="food-list"></div>
 
 

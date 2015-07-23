@@ -7,6 +7,7 @@ var express = require('express'),
     session = require('express-session'),
     Food = require('./models/food');
 
+
 mongoose.connect(
   process.env.MONGOLAB_URI ||
   // process.env.MONGOHQ_URL || 
@@ -48,6 +49,14 @@ app.use('/', function (req, res, next) {
 
   next();
 });
+
+app.get('/current-user', function(req, res){
+  User.findById(req.session.userId).exec(function(err, user) {
+    res.json(user);
+  })
+  // .populate('foods')
+})
+
 
 // signup route (renders signup view)
 app.get('/signup', function (req, res) {
@@ -97,22 +106,22 @@ app.post('/login', function (req, res) {
     req.login(user);
 
     // redirect to user profile
-    res.redirect('/profile');
+    res.redirect('/');
   });
 });
 
 // user profile page
-app.get('/profile', function (req, res) {
-  // finds user currently logged in
-  req.currentUser(function (err, user) {
-    if (user) {
-      res.send('Welcome ' + user.email);
-    // redirect if there is no current user
-    } else {
-      res.redirect('/login');
-    }
-  });
-});
+// app.get('/profile', function (req, res) {
+//   // finds user currently logged in
+//   req.currentUser(function (err, user) {
+//     if (user) {
+//       res.send('Welcome ' + user.email);
+//     // redirect if there is no current user
+//     } else {
+//       res.redirect('/login');
+//     }
+//   });
+// });
 
 // logout route (destroys session)
 app.get('/logout', function (req, res) {
@@ -152,8 +161,17 @@ app.post('/api/foods', function (req, res) {
     picture:req.body.picture
   });
 
-  newFood.save(function(err,savedFood){
-    res.json(savedFood);
+  newFood.save(function(err,savedFood) {
+    if (req.session.userId) {
+      User.findById(req.session.userId).exec(function (err, user){
+        user.foods.push(savedFood);
+        user.save();
+        res.json(savedFood);
+      })
+    } else {
+      res.json(savedFood);
+    }
+
   });
 });
   

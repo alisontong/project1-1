@@ -1,6 +1,14 @@
 $(function() {
 
-  
+  $.get('/current-user', function(data){
+    console.log(data);
+    if (data) {
+      $('#logout-message').show();
+    } else {
+      $('#signup, #login').show();
+    }
+  })
+
   var foodsController = {
     
     template: _.template($('#food-template').html()),

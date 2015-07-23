@@ -7,7 +7,8 @@ var mongoose = require('mongoose'),
 // define user schema
 var UserSchema = new Schema({
   email: String,
-  passwordDigest: String
+  passwordDigest: String,
+  foods: [{ type: Schema.Types.ObjectId, ref: "Food" }]
 });
 
 // create a new user with secure (hashed) password
