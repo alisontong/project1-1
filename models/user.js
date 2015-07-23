@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcrypt'),
     salt = bcrypt.genSaltSync(10);
 
-// define user schema
+// define user schema and establish relationship between user and food
 var UserSchema = new Schema({
   email: String,
   passwordDigest: String,
