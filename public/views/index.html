@@ -24,16 +24,16 @@
         <div class="modal-body">
           <form class="form-inline" id="new-food">
             <div class="newformline1">
-              <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus required="required/">
+              <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus>
             </div>
             <div>    
-              <input type="text" class="form-control" id="new-price" placeholder="Price" required="required/">
+              <input type="text" class="form-control" id="new-price" placeholder="Price">
             </div>
             <div>
-              <input type="text" class="form-control" id="new-description" placeholder="Description" required="required/">
+              <input type="text" class="form-control" id="new-description" placeholder="Description">
             </div>
             <div>    
-              <input type="text" class="form-control" id="new-picture" placeholder="Picture url" required="required/">
+              <input type="text" class="form-control" id="new-picture" placeholder="Picture url">
               <input type="submit" class="btn btn-success" value="Add Food">
             </div>
           </form>
@@ -48,9 +48,8 @@
         <ul class="nav nav-pills navbar-right">
          <li role="presentation" id="signup" style="display:none;"><a href="/signup">Signup</a></li>
          <li role="presentation" id="login" style="display:none;"><a href="/login">Login</a></li>
-         
          <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Food</li>
-         <li role="presentation" id="logout-message" style="display:none;"><a href="/logout">Logout</a></li>
+         <li id="welcome-message" style="display:none;"><a href="/logout">Logout</a></li>  
        </ul>
        <h1>Welcome to the Chinese food blog!</h1>
        <p>We all love Chinese food!</p>
@@ -100,11 +99,11 @@
 <div class="collapse" id="update-<%=_id %>">
 <br>
 <form class="form-inline update-food">          
-<input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?" required="required/">
-<input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price" required="required/">
-<input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description" required="required/">
-<input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url" required="required/">
-<input type="submit" class="btn btn-default" value="Update food" required="required/">
+<input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
+<input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
+<input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
+<input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url">
+<input type="submit" class="btn btn-default" value="Update food">
 </form>
 </div>
 </div>

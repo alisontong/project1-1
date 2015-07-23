@@ -5,20 +5,24 @@ div.img {
     height: auto;
     width: auto;
     float: left;
-};
+}
 
 .food-picture{
-	max-width: 300px;
-	width:300px;
-	max-height: 300px;
-};
+    max-width: 380px;
+    width:380px;
+    max-height: 380px;
+}
 
 .main-form{
-	margin-top: 5%;
-};
+    margin-top: 5%;
+}
 
 
 li{
     width:100px;
     height: 40px;
-};
+}
+
+.body{
+    background-image: url("http://www.citypassguide.com/sites/default/files/styles/slideshow/public/gallery-food/HN-Food-DragonChineseRestaurant1.jpg?itok=v7yTLYda");
+}
