@@ -7,7 +7,10 @@
   <!-- bootstrap css -->
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  <title>Simple Login</title>
+  <!-- custom styles -->
+  <link type="text/css" rel="stylesheet" href="../styles/style.css">
+
+  <title>Signup</title>
 </head>
 <body>
   <div class="container text-center">
@@ -17,10 +20,10 @@
         <hr>
         <form method="post" action="/users">
           <div class="form-group">
-            <input type="text" name="user[email]" class="form-control" placeholder="Email" autofocus required="required/">
+            <input type="text" name="user[email]" class="form-control" placeholder="Email" autofocus required="required">
           </div>
           <div class="form-group">
-            <input type="password" name="user[password]" class="form-control" placeholder="Password" required="required/">
+            <input type="password" name="user[password]" class="form-control" placeholder="Password" required="required">
           </div>
           <div class="form-group">
             <input type="submit" value="Sign Up" class="btn btn-primary">
