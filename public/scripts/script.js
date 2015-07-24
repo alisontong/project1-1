@@ -51,6 +51,7 @@ $(function() {
         },
         success: function(data) {
           var $foodHtml = $(foodsController.template(data));
+          console.log($foodHtml);
           $('#food-' + foodId).replaceWith($foodHtml);
           console.log(data);
         }

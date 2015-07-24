@@ -10,7 +10,7 @@
   <!-- custom styles -->
   <link type="text/css" rel="stylesheet" href="../styles/style.css">
 
-  <title>Food blog</title>
+  <title>Beautiful China Restaurant</title>
 </head>
 <body>
 <!-- add the Add food modal -->
@@ -19,21 +19,21 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Start food blogging!</h4>
+          <h4 class="modal-title" id="myModalLabel">Start posting food you like!</h4>
         </div>
         <div class="modal-body">
           <form class="form-inline" id="new-food">
             <div class="newformline1">
-              <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus>
+              <input type="text" class="form-control" id="new-name" placeholder="Food Name" autofocus required="required">
             </div>
             <div>    
-              <input type="text" class="form-control" id="new-price" placeholder="Price">
+              <input type="text" class="form-control" id="new-price" placeholder="Price" required="required">
             </div>
             <div>
-              <input type="text" class="form-control" id="new-description" placeholder="Description">
+              <input type="text" class="form-control" id="new-description" placeholder="Description" required="required">
             </div>
             <div>    
-              <input type="text" class="form-control" id="new-picture" placeholder="Picture url">
+              <input type="text" class="form-control" id="new-picture" placeholder="Picture url" required="required">
               <input type="submit" class="btn btn-success" value="Add Food">
             </div>
           </form>
@@ -48,11 +48,12 @@
         <ul class="nav nav-pills navbar-right">
          <li role="presentation" id="signup" style="display:none;"><a href="/signup">Signup</a></li>
          <li role="presentation" id="login" style="display:none;"><a href="/login">Login</a></li>
-         <li type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Food</li>
-         <li id="welcome-message" style="display:none;"><a href="/logout">Logout</a></li>  
+         
+         <li id="logout-message" style="display:none;"><a href="/logout">Logout</a></li>  
+         <li type="button" class="btn btn-primary addFood" data-toggle="modal" data-target="#myModal" >Add Food</li>
        </ul>
-       <h1>Welcome to the Chinese food blog!</h1>
-       <p>We all love Chinese food!</p>
+       <h1>Welcome to the Beautiful China Restaurant!</h1>
+       <p>Please post the dishes you like from our restaurant!</p>
      </div>
    </div>
  </div>
@@ -75,8 +76,8 @@
 
 <!-- underscore template -->
 <script type="text/template" id="food-template">
-<div class="col-md-4">
-<div class="food panel panel-default" id="food-<%=_id %>" data-id="<%= _id %>">
+<div class="col-md-4"  id="food-<%=_id %>">
+<div class="food panel panel-default" data-id="<%= _id %>">
 <div class="panel-body">
 
 <span class="my-button-group">
@@ -90,28 +91,26 @@
 </a>
 </span>
 
-<p>Name:<%= name %></p>
-<p>Price:<%= price %></p>
-<p>Description:<%= description %></p>
+<p><strong>Name:</strong><%= name %></p>
+<p><strong>Price:</strong><%= price %></p>
+<p><strong>Description:</strong><%= description %></p>
 <img src="<%= picture %>" class="food-picture">
 
 
 <div class="collapse" id="update-<%=_id %>">
 <br>
 <form class="form-inline update-food">          
-<input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?">
-<input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price">
-<input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description">
-<input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url">
-<input type="submit" class="btn btn-default" value="Update food">
+<input type="text" class="form-control updated-name" value="<%= name %>" placeholder="Food Name?" required="required">
+<input type="text" class="form-control updated-price" value="<%= price %>" placeholder="Price" required="required">
+<input type="text" class="form-control updated-description" value="<%= description %>" placeholder="Description" required="required">
+<input type="text" class="form-control updated-picture" value="<%= picture %>" placeholder="Picture url" required="required">
+<input type="submit" class="btn btn-default" value="Update food"> 
 </form>
 </div>
 </div>
 </div>
 </div>
 </script>
-
-
 
 </body>
 </html>

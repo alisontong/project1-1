@@ -18,11 +18,43 @@ div.img {
 }
 
 
-li{
+li {
     width:100px;
     height: 40px;
+   
 }
 
-.body{
-    background-image: url("http://www.citypassguide.com/sites/default/files/styles/slideshow/public/gallery-food/HN-Food-DragonChineseRestaurant1.jpg?itok=v7yTLYda");
+body{
+    background-image: url("http://ynueco.net/wp-content/uploads/2015/04/Chinese-restaurant-chandeliers.jpg");
+}
+
+    
+
+
+#signup a {
+    font-weight:bold;
+    color: black;
+    font-size:15px;
+
+}
+
+#login a {
+    font-weight:bold;
+    color: black;
+    font-size:15px;
+
+}
+
+#logout-message a {
+    font-weight:bold;
+    color: black;
+    font-size:15px;
+
+}
+
+.addFood{
+    color:black;
+    background-color: transparent;
+    font-weight:bold;
+    border-color: black;
 }
