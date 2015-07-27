@@ -32,6 +32,6 @@ Steps to run locally:
 10. worked on testing
 11. worked on css styling
 
-For Sean and Greg (the issue):
+For Sabastian and Greg (the issue):
 
 when a user logs in, he/she can go to his/her profile page and see only the blogs he/she posted. All users can also add/delete comment on any food blog (probably need a second underscore?). 
