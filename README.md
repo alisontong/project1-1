@@ -1,11 +1,6 @@
 <!-- Description:
 This is the website of the Beautiful China Restaurant, which I plan to open in the near future. On this page, the users can post the dishes they like and update their posts. 
 
-Story:
-1. environment
-2. customized taste
-3. networking for FOB
-
 Functions:
 1. For users to add new food picture and other details
 2. update and delete
@@ -37,4 +32,6 @@ Steps to run locally:
 10. worked on testing
 11. worked on css styling
 
+For Sean and Greg (the issue):
 
+when a user logs in, he/she can go to his/her profile page and see only the blogs he/she posted. All users can also add/delete comment on any food blog (probably need a second underscore?). 
