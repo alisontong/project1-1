@@ -9,6 +9,9 @@ var FoodSchema = new Schema({
   
 });
 
+
 var Food = mongoose.model('Food', FoodSchema);
+
+
 
 module.exports = Food;

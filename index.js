@@ -6,6 +6,7 @@ var express = require('express'),
     User = require('./models/user'),
     session = require('express-session'),
     Food = require('./models/food');
+    Comment = require('./models/comments')
 
 
 mongoose.connect(
@@ -171,8 +172,22 @@ app.post('/api/foods', function (req, res) {
     } else {
       res.json(savedFood);
     }
-
   });
+});
+
+app.get('/api/comments', function (req, res) {
+  Comment.find(function (err, comments) {
+    res.json(comments);
+  });
+});
+
+app.post('/api/comments', function (req, res) {
+  var newComment = new Comment({
+    comments: req.body.comments
+  });
+  newComment.save(function (err, savedPost) {
+    res.json(savedPost);
+});
 });
   
 
